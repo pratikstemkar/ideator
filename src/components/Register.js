@@ -1,5 +1,6 @@
 import React, {Fragment, Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
+import { compose } from 'recompose';
 
 import { withFirebase } from '../firebase';
 
@@ -103,6 +104,9 @@ class RForm extends Component {
     }
 }
 
-const Form = withRouter(withFirebase(RForm));
+const Form = compose(
+    withRouter,
+    withFirebase,
+    )(RForm);
 
 export default Register;
