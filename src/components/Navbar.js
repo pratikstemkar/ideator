@@ -7,19 +7,31 @@ const Navbar = () => {
     return(
         <Fragment>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to="/">Ideator</Link>
+                <AuthUserContext.Consumer>
+                    {authUser => 
+                        authUser ? <Link className="navbar-brand" to="/home">Ideator</Link> : <Link className="navbar-brand" to="/">Ideator</Link>
+                    }
+                </AuthUserContext.Consumer>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                    <li className="nav-item active">
-                        <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/users">Users</Link>
-                    </li>
+                    <AuthUserContext.Consumer>
+                        {authUser => 
+                            authUser ? (
+                                <Fragment>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/home">Home</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link className="nav-link" to="/users">Users</Link>
+                                    </li>
+                                </Fragment>
+                            ) : null
+                        }
+                    </AuthUserContext.Consumer>
                     <li className="nav-item">
                         <Link className="nav-link" to="/about">About</Link>
                     </li>

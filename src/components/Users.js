@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import {Animated} from 'react-animated-css';
 
+import { withAuthorization } from '../session';
 
 const Users = () => {
     return(
@@ -16,4 +17,6 @@ const Users = () => {
     );
 }
 
-export default Users;
+const condition = authUser => !!authUser;
+
+export default withAuthorization(condition)(Users);
