@@ -1,5 +1,6 @@
 import app from 'firebase/app';
 import 'firebase/auth';
+import cogoToast from 'cogo-toast';
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -27,7 +28,10 @@ class Firebase {
     doSignInWithEmailAndPassword = (email, password) =>
         this.auth.signInWithEmailAndPassword(email, password);
     
-    doSignOut = () => this.auth.signOut();
+    doSignOut = () => {
+        this.auth.signOut();
+        cogoToast.success('Logged Out Successfully');
+    };
     
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
     

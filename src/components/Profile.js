@@ -1,13 +1,21 @@
 import React, {Fragment} from 'react';
 
+import { withAuthorization, AuthUserContext } from '../session';
+
 const Profile = () => {
     return(
         <Fragment>
-            <div className="container">
-                Profile
-            </div>
+            <AuthUserContext.Consumer>
+                {authUser => (
+                    <div className="container">
+                        {authUser.email}
+                    </div>
+                )}
+            </AuthUserContext.Consumer>
         </Fragment>
     );
 }
 
-export default Profile;
+const condition = authUser => !!authUser;
+ 
+export default withAuthorization(condition)(Profile);

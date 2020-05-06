@@ -3,6 +3,13 @@
 
 
 
+.centered {
+  position: fixed;
+  left: 50%;
+  text-align: center;
+  margin-left: -150px;
+}
+
 .center {
   text-align: center;
 }

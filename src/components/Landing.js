@@ -6,13 +6,11 @@ import img1 from '../images/1.png';
 import img2 from '../images/2.png';
 import img3 from '../images/3.png';
 
-import FirebaseAck from './FirebaseAck';
 
 const Landing = () => {
     return(
         <Fragment>
 
-            <FirebaseAck />
 
             <div className="container">
                 <div id="carouselExampleCaptions" className="carousel slide" data-ride="carousel">

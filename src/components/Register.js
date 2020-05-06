@@ -3,6 +3,7 @@ import {Link, withRouter} from 'react-router-dom';
 import { compose } from 'recompose';
 
 import { withFirebase } from '../firebase';
+import cogoToast from 'cogo-toast';
 
 const Register = () => {
     return(
@@ -41,16 +42,19 @@ class RForm extends Component {
     onSubmit = event => {
         const {username, email, pass1} = this.state;
         
-        this.props.firebase
-            .doCreateUserWithEmailAndPassword(email, pass1)
-            .then(authUser => {
-                this.setState({ ...INITIAL_STATE });
+        cogoToast.loading('Registering you ...').then(() => {
+            this.props.firebase
+                .doCreateUserWithEmailAndPassword(email, pass1)
+                .then(authUser => {
+                    this.setState({ ...INITIAL_STATE });
 
-                this.props.history.push('/login');
-            })
-            .catch(error => {
-                this.setState({ error });
-            });
+                    cogoToast.success('Registered Successfully');
+                    this.props.history.push('/login');
+                })
+                .catch(error => {
+                    this.setState({ error });
+                });
+        });
 
         event.preventDefault();
     };

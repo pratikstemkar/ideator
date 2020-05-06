@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
 import { withFirebase } from '../firebase';
+import cogoToast from 'cogo-toast';
 
 const Login = () => {
     return(
@@ -39,16 +40,19 @@ class LForm extends Component {
     onSubmit = event => {
         const { email, pass } = this.state;
         
-        this.props.firebase
-            .doSignInWithEmailAndPassword(email, pass)
-            .then(() => {
-                this.setState({ ...INITIAL_STATE });
+        cogoToast.loading('Logging In ...').then(() => {
+            this.props.firebase
+                .doSignInWithEmailAndPassword(email, pass)
+                .then(() => {
+                    this.setState({ ...INITIAL_STATE });
 
-                this.props.history.push('/profile');
-            })
-            .catch(error => {
-                this.setState({ error });
-            });
+                    cogoToast.success('Logged In Successfully');
+                    this.props.history.push('/profile');
+                })
+                .catch(error => {
+                    this.setState({ error });
+                });
+        });
 
         event.preventDefault();
     };
@@ -79,6 +83,7 @@ class LForm extends Component {
                 <div className="form-group">
                     <label htmlFor="pass">Password</label>
                     <input type="password" className="form-control" id="pass" name="pass" value={pass} onChange={this.onChange} placeholder="Enter Password" />
+                    <small id="passForget" className="form-text text-muted"><Link to='/password-reset'>Forgot Password?</Link></small>
                 </div>
                 <button type="submit" disabled={isInvalid} className="btn btn-primary mt-2">Login</button>
                 <p className="text-muted"><small>Don't have an account? <Link to="/register">Register</Link></small></p>
