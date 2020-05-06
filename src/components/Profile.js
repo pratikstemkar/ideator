@@ -7,8 +7,19 @@ const Profile = () => {
         <Fragment>
             <AuthUserContext.Consumer>
                 {authUser => (
-                    <div className="container">
-                        {authUser.email}
+                    <div className="container mt-4">
+                        <div className="row">
+                            <div className="col-sm-3">
+                                <h1><img src="https://i.picsum.photos/id/1005/5760/3840.jpg" class="profile-page-image rounded-circle shadow bg-white rounded" alt=""/></h1>
+                            </div>
+                            <div className="col">
+                                Full Name
+                                <br/>
+                                username
+                                <br/>
+                                <a href={'mailto:' + authUser.email}>{authUser.email}</a>
+                            </div>
+                        </div>
                     </div>
                 )}
             </AuthUserContext.Consumer>
