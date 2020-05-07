@@ -3,7 +3,6 @@ import './App.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 import Landing from './components/Landing'
-import Users from './components/Users'
 import Contact from './components/Contact'
 import About from './components/About'
 import Login from './components/Login'
@@ -13,7 +12,9 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import PassChange from './components/PassChange';
 import PassForget from './components/PassForget';
+import EditProfile from './components/EditProfile';
 import Home from './components/Home';
+import Notifications from './components/Notifications';
 
 import { withAuthentication } from './session';
 
@@ -25,7 +26,6 @@ const App = () =>  {
         <Navbar />
 
         <Route exact path="/" component={Landing} />
-        <Route path="/users" component={Users} />
         <Route path="/contact" component={Contact} />
         <Route path="/about" component={About} />
         <Route path="/login" component={Login} />
@@ -34,6 +34,8 @@ const App = () =>  {
         <Route path="/password-reset" component={PassForget} />
         <Route path="/password-change" component={PassChange} />
         <Route path="/home" component={Home} />
+        <Route path="/edit-profile" component={EditProfile} />
+        <Route path="/notifications" component={Notifications} />
       </div>
 
       <Footer />

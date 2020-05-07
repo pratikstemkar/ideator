@@ -1,9 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-import img1 from '../media/carousel/1-min.jpg';
-import img2 from '../media/carousel/2-min.jpg';
-import img3 from '../media/carousel/3-min.jpg';
 
 const Landing = () => {
     return(

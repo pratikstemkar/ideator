@@ -59,10 +59,6 @@
   margin-left: 4rem;
 }
 
-.post-time {
-  
-}
-
 
 /* ---------------------------------------------------------- */
 
@@ -72,6 +68,35 @@
   width: 200px;
 }
 
+.name-detail {
+  margin-top: 1rem;
+  margin-left: -3rem;
+}
+
+.pro-fullname {
+  font-size: 2rem;
+}
+
+.pro-username {
+  font-size: medium;
+}
+
+.pro-fol {
+  margin-top: 4rem;
+  font-size: 1.5rem;
+}
+
+/* ---------------------------------------------------------- */
+
+/* Edit Profile Page */
+.edit-pro-image {
+  height: 100px;
+  width: 100px;
+}
+
+.edit-detail {
+  margin-left: 30px;
+}
 
 /* Slider */
 /* .carousel-item {
