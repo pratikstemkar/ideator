@@ -6,7 +6,6 @@ import { withFirebase } from '../firebase';
 import cogoToast from 'cogo-toast';
 import Google from './SignInGoogle';
 
-import mac from '../media/original/5.png'
 
 const Login = () => {
     return(
@@ -14,7 +13,7 @@ const Login = () => {
             <div className="container mt-4">
                 <div className="row">
                     <div className="col">
-                        <img src={mac} alt="" className="login-image shadow-lg mb-5 bg-white rounded"  />
+                        <h1>Login</h1>
                     </div>
                     <div className="col-4">
                         <Form />

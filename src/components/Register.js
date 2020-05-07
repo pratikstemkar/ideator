@@ -5,7 +5,6 @@ import { compose } from 'recompose';
 import { withFirebase } from '../firebase';
 import cogoToast from 'cogo-toast';
 
-import mac84 from '../media/original/14.png'
 
 const Register = () => {
     return(
@@ -13,7 +12,7 @@ const Register = () => {
             <div className="container mt-4">
                 <div className="row">
                     <div className="col">
-                        <img src={mac84} alt="" className="login-image shadow-lg mb-5 bg-white rounded"  />
+                        <h1>Register</h1>
                     </div>
                     <div className="col-4">
                         <Form />
