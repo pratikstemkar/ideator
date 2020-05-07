@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../firebase';
 import cogoToast from 'cogo-toast';

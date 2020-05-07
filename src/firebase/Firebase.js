@@ -1,5 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/firestore';
+
 import cogoToast from 'cogo-toast';
 
 const config = {
@@ -17,16 +19,27 @@ class Firebase {
     constructor() {
         app.initializeApp(config);
 
+        // Helper
+        this.fieldValue = app.firestore.FieldValue;
+        this.emailiAuthProvider = app.auth.EmailAuthProvider;
+
+        // Firebase APIs
         this.auth = app.auth();
+        this.db = app.firestore();
+
+        // Social SIGN IN Provider
+        this.googleProvider = new app.auth.GoogleAuthProvider();
     }
 
     // AUTH API
-
     doCreateUserWithEmailAndPassword = (email, password) => 
         this.auth.createUserWithEmailAndPassword(email, password);
  
     doSignInWithEmailAndPassword = (email, password) =>
         this.auth.signInWithEmailAndPassword(email, password);
+        
+    doSignInWithGoogle = () =>
+        this.auth.signInWithPopup(this.googleProvider);
     
     doSignOut = () => {
         this.auth.signOut();
@@ -37,7 +50,42 @@ class Firebase {
     
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password);
-    
+
+    // Merge Auth & DB User API
+
+    onAuthUserListener = (next, fallback) => 
+        this.auth.onAuthStateChanged(authUser => {
+            if(authUser) {
+                this.user(authUser.uid)
+                    .get()
+                    .then(snapshot => {
+                        const dbUser = snapshot.data();
+
+                        // Default Empty Roles
+                        if(!dbUser.roles){
+                            dbUser.roles = {};
+                        }
+
+                        // Merge Auth & DB User
+                        authUser = {
+                            uid: authUser.uid,
+                            email: authUser.email,
+                            emailVerified: authUser.emailVerified,
+                            providerData: authUser.providerData,
+                            ...dbUser,
+                        };
+
+                        next(authUser);
+                    });
+            } else {
+                fallback();
+            }
+        });
+
+    // *** User API ***
+    user = uid => this.db.doc(`users/${uid}`);
+    users = () => this.db.collection('users');
+        
 }
 
 export default Firebase;

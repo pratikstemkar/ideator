@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
-
 import { Link } from 'react-router-dom';
+
+import img1 from '../media/carousel/1-min.jpg';
+import img2 from '../media/carousel/2-min.jpg';
+import img3 from '../media/carousel/3-min.jpg';
 
 const Landing = () => {
     return(
@@ -16,33 +19,36 @@ const Landing = () => {
                 </ol>
                 <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                    {/* <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg> */}
+                    <img src="https://firebasestorage.googleapis.com/v0/b/ideator-b1aa1.appspot.com/o/carousel_pics%2F1-min.jpg?alt=media&token=e64e1ff5-3068-4a8e-b8ea-130dabea12fc" alt=""/>
                     <div className="container">
-                    <div className="carousel-caption text-left">
-                        <h1>Join today !!</h1>
-                        <p>Everyone is sharing their stories on Ideator. What are you waiting for?</p>
-                        <p><Link className="btn btn-lg btn-primary" to="/register" role="button">Sign Up Today</Link></p>
-                    </div>
+                        <div className="carousel-caption text-left">
+                            <h1>Join today !!</h1>
+                            <p>Everyone is sharing their stories on Ideator. What are you waiting for?</p>
+                            <p><Link className="btn btn-lg btn-primary" to="/register" role="button">Sign Up Today</Link></p>
+                        </div>
                     </div>
                 </div>
                 <div className="carousel-item">
-                    <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                    {/* <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg> */}
+                    <img src="https://firebasestorage.googleapis.com/v0/b/ideator-b1aa1.appspot.com/o/carousel_pics%2F2-min.jpg?alt=media&token=5f93fb99-d14a-4cea-9ab8-8ccdde1d761a" alt=""/>
                     <div className="container">
-                    <div className="carousel-caption">
-                        <h1>Great Image Handling</h1>
-                        <p>We got the best back-end for your images.</p>
-                        <p><Link className="btn btn-lg btn-primary" to="/about" role="button">Learn more</Link></p>
-                    </div>
+                        <div className="carousel-caption">
+                            <h1>Great Image Handling</h1>
+                            <p>We got the best back-end for your images.</p>
+                            <p><Link className="btn btn-lg btn-primary" to="/about" role="button">Learn more</Link></p>
+                        </div>
                     </div>
                 </div>
                 <div className="carousel-item">
-                    <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                    {/* <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg> */}
+                    <img src="https://firebasestorage.googleapis.com/v0/b/ideator-b1aa1.appspot.com/o/carousel_pics%2F3-min.jpg?alt=media&token=163e1d0f-7018-4d81-b319-a80744827d77" alt=""/>
                     <div className="container">
-                    <div className="carousel-caption text-right">
-                        <h1>One more for good measure.</h1>
-                        <p>Dive into the world of endless stories.</p>
-                        <p><Link className="btn btn-lg btn-primary" to="/home" role="button">Browse gallery</Link></p>
-                    </div>
+                        <div className="carousel-caption text-right">
+                            <h1>One more for good measure.</h1>
+                            <p>Dive into the world of endless stories.</p>
+                            <p><Link className="btn btn-lg btn-primary" to="/home" role="button">Browse gallery</Link></p>
+                        </div>
                     </div>
                 </div>
                 </div>

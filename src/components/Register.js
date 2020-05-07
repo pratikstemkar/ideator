@@ -5,13 +5,15 @@ import { compose } from 'recompose';
 import { withFirebase } from '../firebase';
 import cogoToast from 'cogo-toast';
 
+import mac84 from '../media/original/14.png'
+
 const Register = () => {
     return(
         <Fragment>
             <div className="container mt-4">
                 <div className="row">
                     <div className="col">
-                        <h1>Register</h1>
+                        <img src={mac84} alt="" className="login-image shadow-lg mb-5 bg-white rounded"  />
                     </div>
                     <div className="col-4">
                         <Form />
@@ -49,10 +51,11 @@ class RForm extends Component {
                     this.setState({ ...INITIAL_STATE });
 
                     cogoToast.success('Registered Successfully');
-                    this.props.history.push('/login');
+                    this.props.history.push('/home');
                 })
                 .catch(error => {
                     this.setState({ error });
+                    cogoToast.error(error.message);
                 });
         });
 

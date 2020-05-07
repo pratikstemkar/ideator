@@ -14,6 +14,55 @@
   text-align: center;
 }
 
+/* ----------------------------------------------------------- */
+
+/* Navbar */
+
+
+
+/* ----------------------------------------------------------- */
+
+/* Login Page */
+.login-image {
+  height: 500px;
+  width: 500px;
+}
+
+
+
+/* ---------------------------------------------------------- */
+
+/* Home Page */
+.home-page-image {
+  height: 75px;
+  width: 75px;
+}
+
+.post-profile-image {
+  height: 50px;
+  width: 50px;
+}
+
+.username-post-image {
+  margin-left: -10px;
+  margin-top: 10px;
+}
+
+.post-image {
+  height: 400px;
+  width: 750px;
+  margin-left: 62px;
+}
+
+.like-comment {
+  font-size: 0.8rem;
+  margin-left: 4rem;
+}
+
+.post-time {
+  
+}
+
 
 /* ---------------------------------------------------------- */
 

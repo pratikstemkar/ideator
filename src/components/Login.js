@@ -4,6 +4,9 @@ import { compose } from 'recompose';
 
 import { withFirebase } from '../firebase';
 import cogoToast from 'cogo-toast';
+import Google from './SignInGoogle';
+
+import mac from '../media/original/5.png'
 
 const Login = () => {
     return(
@@ -11,7 +14,7 @@ const Login = () => {
             <div className="container mt-4">
                 <div className="row">
                     <div className="col">
-                        <h1>Login</h1>
+                        <img src={mac} alt="" className="login-image shadow-lg mb-5 bg-white rounded"  />
                     </div>
                     <div className="col-4">
                         <Form />
@@ -31,10 +34,7 @@ const INITIAL_STATE = {
 class LForm extends Component {
     constructor(props){
         super(props);
-
         this.state = { ...INITIAL_STATE};
-
-        
     }
 
     onSubmit = event => {
@@ -47,10 +47,11 @@ class LForm extends Component {
                     this.setState({ ...INITIAL_STATE });
 
                     cogoToast.success('Logged In Successfully');
-                    this.props.history.push('/profile');
+                    this.props.history.push('/home');
                 })
                 .catch(error => {
                     this.setState({ error });
+                    cogoToast.error(error.message);
                 });
         });
 
@@ -65,7 +66,6 @@ class LForm extends Component {
         const {
             email,
             pass,
-            error
         } = this.state;
 
         const isInvalid =
@@ -73,7 +73,8 @@ class LForm extends Component {
             email === '' ;
 
         return(
-            <form onSubmit={this.onSubmit}>
+            <Fragment>
+                <form onSubmit={this.onSubmit}>
                 <legend>Login</legend>
                 <div className="form-group">
                     <label htmlFor="email">Email address</label>
@@ -87,9 +88,9 @@ class LForm extends Component {
                 </div>
                 <button type="submit" disabled={isInvalid} className="btn btn-primary mt-2">Login</button>
                 <p className="text-muted"><small>Don't have an account? <Link to="/register">Register</Link></small></p>
-
-                {error && <p>{error.message}</p>}
-            </form>
+                </form>
+                <Google />
+            </Fragment>
         );
     }
 }
