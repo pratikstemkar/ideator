@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/analytics';
 
 import cogoToast from 'cogo-toast';
 
@@ -26,6 +27,7 @@ class Firebase {
         // Firebase APIs
         this.auth = app.auth();
         this.db = app.firestore();
+        this.analytics = app.analytics();
 
         // Social SIGN IN Provider
         this.googleProvider = new app.auth.GoogleAuthProvider();
@@ -47,12 +49,18 @@ class Firebase {
     };
     
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
+
+    doSendEmailVerification = () =>
+        this.auth.currentUser.sendEmailVerification({
+            url: "http://localhost:3000/",
+        }).then(() => {
+            cogoToast.success('Email Sent for Verification');
+        });
     
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password);
 
     // Merge Auth & DB User API
-
     onAuthUserListener = (next, fallback) => 
         this.auth.onAuthStateChanged(authUser => {
             if(authUser) {
@@ -60,11 +68,6 @@ class Firebase {
                     .get()
                     .then(snapshot => {
                         const dbUser = snapshot.data();
-
-                        // Default Empty Roles
-                        if(!dbUser.roles){
-                            dbUser.roles = {};
-                        }
 
                         // Merge Auth & DB User
                         authUser = {
@@ -86,6 +89,22 @@ class Firebase {
     user = uid => this.db.doc(`users/${uid}`);
     users = () => this.db.collection('users');
         
+    // *** Post API ***
+    post = uid => this.db.doc(`posts/${uid}`);
+    posts = () => this.db.collection('posts');
+
+    // *** Comment API ***
+    comment = (postUid, uid) => this.db.doc(`comments/${postUid}/${uid}`);
+    comments = postUid => this.db.doc(`comments/${postUid}`);
+
+    // *** Follow API ***
+    followers = userUid => this.db.doc(`follow/${userUid}/followers`);
+    following = userUid => this.db.doc(`follow/${userUid}/following`);
+    follow = () => this.db.collection('follow');
+
+    // *** Notification API ***
+    notification = (userUid, uid) => this.db.doc(`notifications/${userUid}/${uid}`);
+    notifications = userUid => this.db.doc(`notification/${userUid}`)
 }
 
 export default Firebase;

@@ -6,7 +6,7 @@ const Post = () => {
             <hr/>
             <div className="row">
                 <div className="col-1">
-                <img src="https://i.picsum.photos/id/1005/5760/3840.jpg" class="post-profile-image rounded-circle shadow bg-white rounded" alt=""/>
+                <img src="https://i.picsum.photos/id/1005/5760/3840.jpg" class="post-profile-image rounded-circle" alt=""/>
                 </div>
                 <div className="col username-post-image">
                 <span className="align middle"><b>username</b></span>

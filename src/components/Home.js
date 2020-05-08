@@ -21,6 +21,43 @@ const Home = () => (
         </div>
         <div className="col-md-3">
           <h2>Suggestion</h2>
+          <div className="suggest-user rounded">
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+            1<br/>
+          </div>
         </div>
       </div>
     </div>

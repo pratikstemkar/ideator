@@ -59,6 +59,12 @@
   margin-left: 4rem;
 }
 
+.suggest-user {
+  background-color: aquamarine;
+  height: 400px;
+  overflow: auto;
+}
+
 
 /* ---------------------------------------------------------- */
 

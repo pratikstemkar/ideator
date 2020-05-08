@@ -49,7 +49,7 @@ class EditProfile extends React.Component {
                             <h1>Edit Profile</h1>
                             <div className="row mt-4">
                                 <div className="col-sm-1">
-                                    <img src={authUser.photoURL} class="edit-pro-image rounded-circle" />
+                                    <img src={authUser.photoURL} class="edit-pro-image rounded-circle" alt="edit-profile-image"/>
                                 </div>
                                 <div className="edit-detail col-4">
                                     <form>

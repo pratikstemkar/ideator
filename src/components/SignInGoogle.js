@@ -18,9 +18,18 @@ class SignInGoogle extends Component {
             this.props.firebase
                 .doSignInWithGoogle()
                 .then(socialAuthUser => {
-                    this.setState({ error: null });
                     
-                    cogoToast.success('Signed In with Google');
+                    return this.props.firebase.user(socialAuthUser.user.uid).set(
+                    {
+                        username: socialAuthUser.user.email.match(/^([^@]*)@/)[1],
+                        email: socialAuthUser.user.email,
+                    },
+                    { merge: true },
+                    );
+                })
+                .then(() => {
+                    this.setState({ error: null });
+                    cogoToast.success("Signed In Successfully");
                     this.props.history.push('/home');
                 })
                 .catch(error => {

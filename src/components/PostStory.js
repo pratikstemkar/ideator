@@ -13,7 +13,7 @@ class PostStory extends React.Component {
                     <div className="col ml-3">
                     <form>
                         <div className="form-group">
-                        <textarea className="form-control" name="post-text" id="post-text" rows="6" placeholder="Enter your story" aria-describedly="post-help" />
+                        <textarea className="form-control" name="post-text" id="post-text" rows="6" placeholder="Enter your story" aria-describedby="post-help" />
                         <small id="post-help" className="form-text text-muted">Story should be short and precise.</small>
                         </div>
                         <div className="form-group">

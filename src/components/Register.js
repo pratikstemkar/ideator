@@ -34,21 +34,30 @@ const INITIAL_STATE = {
 class RForm extends Component {
     constructor(props){
         super(props);
-
         this.state = { ...INITIAL_STATE};
-
-        
     }
-// eslint-disable-next-line
+
     onSubmit = event => {
         const {username, email, pass1} = this.state;
         
-        cogoToast.loading('Registering you ...').then(() => {
+        cogoToast.loading('Registering you').then(() => {
             this.props.firebase
                 .doCreateUserWithEmailAndPassword(email, pass1)
                 .then(authUser => {
+                    
+                    return this.props.firebase.user(authUser.user.uid).set(
+                    {
+                        username,
+                        email,
+                    },
+                    { merge: true },
+                    );
+                })
+                .then(() => {
+                    return this.props.firebase.doSendEmailVerification();
+                })
+                .then(() => {
                     this.setState({ ...INITIAL_STATE });
-
                     cogoToast.success('Registered Successfully');
                     this.props.history.push('/home');
                 })
