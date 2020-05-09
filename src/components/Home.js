@@ -4,6 +4,7 @@ import { withAuthorization } from '../session';
 
 import PostStory from './PostStory';
 import Post from './Post';
+import UserFollow from './UserFollow';
  
 const Home = () => (
   <Fragment>
@@ -13,51 +14,10 @@ const Home = () => (
           <PostStory />
 
           <Post />
-          <Post />
-          <Post />
-          <Post />
-          <Post />
           
         </div>
-        <div className="col-md-3">
-          <h2>Suggestion</h2>
-          <div className="suggest-user rounded">
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-            1<br/>
-          </div>
+        <div className="col-md-4">
+          <UserFollow />
         </div>
       </div>
     </div>

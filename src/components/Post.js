@@ -26,16 +26,16 @@ const Post = () => {
                 </div>
             </div>
             <div className="row mt-2">
-                <div className="col-1">
-                <b>username</b>
+                <div className="col-2">
+                    <b>username</b>
                 </div>
-                <div className="col ml-4">
-                <div className="row">
-                    some caption man some cpation some caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpation
-                </div>
-                <div className="row">
-                    <small className="mt-2 mb-2">4 Hours ago</small>
-                </div>            
+                <div className="col">
+                    <div className="row">
+                        some caption man some cpation some caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpationsome caption man some cpation
+                    </div>
+                    <div className="row">
+                        <small className="mt-2 mb-2">4 Hours ago</small>
+                    </div>            
                 </div>
             </div>
         </Fragment>

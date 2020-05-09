@@ -30,12 +30,13 @@ const App = () =>  {
         <Route path="/about" component={About} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/profile" component={Profile} />
         <Route path="/password-reset" component={PassForget} />
         <Route path="/password-change" component={PassChange} />
         <Route path="/home" component={Home} />
+        <Route path="/profile" component={Profile} />
         <Route path="/edit-profile" component={EditProfile} />
         <Route path="/notifications" component={Notifications} />
+        <Route path="/user/:id" component={Profile} />
       </div>
 
       <Footer />

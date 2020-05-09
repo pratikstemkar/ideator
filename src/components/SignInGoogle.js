@@ -22,7 +22,12 @@ class SignInGoogle extends Component {
                     return this.props.firebase.user(socialAuthUser.user.uid).set(
                     {
                         username: socialAuthUser.user.email.match(/^([^@]*)@/)[1],
+                        fullname: socialAuthUser.user.displayName,
                         email: socialAuthUser.user.email,
+                        photoUrl: socialAuthUser.user.photoURL,
+                        twitter: '',
+                        linkedin: '',
+                        instagram: '',
                     },
                     { merge: true },
                     );

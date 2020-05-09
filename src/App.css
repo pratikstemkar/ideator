@@ -50,7 +50,7 @@
 
 .post-image {
   height: 400px;
-  width: 750px;
+  width: 600px;
   margin-left: 62px;
 }
 
@@ -60,9 +60,24 @@
 }
 
 .suggest-user {
-  background-color: aquamarine;
+  /* background-color:beige; */
   height: 400px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0%;
+}
+
+.user-item{
+  padding: 0%;
+}
+
+.user-item a{
+  text-decoration: none;
+}
+
+.user-item-image {
+  height: 40px;
+  width: 40px;
 }
 
 
@@ -103,6 +118,7 @@
 .edit-detail {
   margin-left: 30px;
 }
+
 
 /* Slider */
 /* .carousel-item {

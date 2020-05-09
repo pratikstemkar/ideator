@@ -58,7 +58,16 @@ const NavAuth = () => {
                 <Link className="nav-link" to="/notifications">Notifications</Link>
             </li>
             <li className="nav-item">
-                <Link className="nav-link" to="/profile">Profile</Link>
+                <AuthUserContext.Consumer>
+                    {authUser => 
+                        <Link className="nav-link" to={{
+                            pathname: `/profile`,
+                            state: {
+                                user: authUser,
+                            }
+                        }}>Profile</Link>
+                    }
+                </AuthUserContext.Consumer>
             </li>
             <li className="nav-item">
                 <Logout />

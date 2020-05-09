@@ -48,7 +48,12 @@ class RForm extends Component {
                     return this.props.firebase.user(authUser.user.uid).set(
                     {
                         username,
+                        fullname: '',
                         email,
+                        photoUrl: "https://i.picsum.photos/id/237/200/300.jpg",
+                        twitter: '',
+                        linkedin: '',
+                        instagram: '',
                     },
                     { merge: true },
                     );

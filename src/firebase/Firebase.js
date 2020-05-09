@@ -49,13 +49,6 @@ class Firebase {
     };
     
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
-
-    doSendEmailVerification = () =>
-        this.auth.currentUser.sendEmailVerification({
-            url: "http://localhost:3000/",
-        }).then(() => {
-            cogoToast.success('Email Sent for Verification');
-        });
     
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password);
