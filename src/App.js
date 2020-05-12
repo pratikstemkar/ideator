@@ -34,9 +34,9 @@ const App = () =>  {
         <Route path="/password-change" component={PassChange} />
         <Route path="/home" component={Home} />
         <Route path="/profile" component={Profile} />
-        <Route path="/edit-profile" component={EditProfile} />
+        <Route path="/:username/edit-profile" component={EditProfile} />
         <Route path="/notifications" component={Notifications} />
-        <Route path="/user/:id" component={Profile} />
+        <Route path="/user/:username" component={Profile} />
       </div>
 
       <Footer />

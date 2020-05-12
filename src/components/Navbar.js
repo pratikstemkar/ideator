@@ -61,7 +61,7 @@ const NavAuth = () => {
                 <AuthUserContext.Consumer>
                     {authUser => 
                         <Link className="nav-link" to={{
-                            pathname: `/profile`,
+                            pathname: `/user/${authUser.username}`,
                             state: {
                                 user: authUser,
                             }

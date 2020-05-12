@@ -4,11 +4,13 @@ import { WaveLoading } from 'react-loadingg';
 
 import UserFollow from './UserFollow';
 
-import { withAuthorization, AuthUserContext  } from '../session';
+import { withAuthorization, AuthUserContext, withAuthentication  } from '../session';
 
 import Post from './Post';
+import { withFirebase } from '../firebase';
+import {compose} from 'recompose';
 
-class Profile extends Component {
+class Pro extends Component {
     constructor(props) {
         super(props);
     
@@ -17,28 +19,28 @@ class Profile extends Component {
           user: null,
           ...props.location.state,
         };
-      }
+    }
     
-      componentDidMount() {
+    componentDidMount() {
         if (this.state.user) {
-          return;
+            return;
         }
-    
+
         this.setState({ loading: true });
-    
+
         this.unsubscribe = this.props.firebase
-          .user(this.props.match.params.id)
-          .onSnapshot(snapshot => {
+            .user(this.props.match.params.id)
+            .onSnapshot(snapshot => {
             this.setState({
-              user: snapshot.data(),
-              loading: false,
+                user: snapshot.data(),
+                loading: false,
+                });
             });
-          });
-      }
+    }
     
-      componentWillUnmount() {
+    componentWillUnmount() {
         this.unsubscribe && this.unsubscribe();
-      }
+    }
 
       render(){
           const {user, loading} = this.state;
@@ -73,7 +75,10 @@ class Profile extends Component {
                         </div>
                         <div className="col">
                             <AuthUserContext.Consumer>
-                                {authUser => user.username === authUser.username ? <Link className="btn btn-secondary float-right" to="/edit-profile">Edit Profile</Link> : null}
+                                {authUser => user.username === authUser.username ? <Link className="btn btn-secondary float-right" to={{ 
+                                    pathname: `/${user.username}/edit-profile`,
+                                    state: user,
+                                }}>Edit Profile</Link> : null}
                             </AuthUserContext.Consumer>
                         
                             
@@ -102,5 +107,11 @@ class Profile extends Component {
 }
 
 const condition = authUser => !!authUser;
+
+const Profile = compose(
+    withAuthentication,
+    withAuthorization(condition),
+    withFirebase,
+)(Pro);
  
-export default withAuthorization(condition)(Profile);
+export default Profile;

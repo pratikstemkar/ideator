@@ -5,7 +5,6 @@ import { compose } from 'recompose';
 import  AuthUserContext  from './Context';
 
 import { withFirebase } from '../firebase';
-import cogoToast from 'cogo-toast';
  
 const withAuthorization = condition => Component => {
   class WithAuthorization extends React.Component {
