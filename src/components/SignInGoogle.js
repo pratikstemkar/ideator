@@ -65,3 +65,4 @@ const Google = compose(
 )(SignInGoogle);
 
 export default Google;
+

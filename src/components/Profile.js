@@ -6,7 +6,7 @@ import UserFollow from './UserFollow';
 
 import { withAuthorization, AuthUserContext, withAuthentication  } from '../session';
 
-import Post from './Post';
+import Posts from './Posts';
 import { withFirebase } from '../firebase';
 import {compose} from 'recompose';
 
@@ -93,7 +93,8 @@ class Pro extends Component {
                 <div className="container mt-4">
                         <div className="row">
                             <div className="col">
-                                <Post />
+                                <hr/>
+                                <h1>Poostst</h1>
                             </div>
                             <div className="col-md-4">
                                 <hr/>

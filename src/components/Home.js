@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 import { withAuthorization } from '../session';
 
 import PostStory from './PostStory';
-import Post from './Post';
+import Posts from './Posts';
 import UserFollow from './UserFollow';
  
 const Home = () => (
@@ -13,7 +13,7 @@ const Home = () => (
         <div className="col">
           <PostStory />
 
-          <Post />
+          <Posts />
           
         </div>
         <div className="col-md-4">
