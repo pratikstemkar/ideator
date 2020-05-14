@@ -1,13 +1,13 @@
-import React, {Fragment, Component} from 'react';
-import {Link} from 'react-router-dom';
-import { WaveLoading } from 'react-loadingg';
+import React, {Fragment, Component} from './node_modules/react';
+import {Link} from './node_modules/react-router-dom';
+import { WaveLoading } from './node_modules/react-loadingg';
 
-import UserFollow from './UserFollow';
+import UserFollow from '../UserFollow';
 
-import { withAuthorization, AuthUserContext, withAuthentication  } from '../session';
+import { withAuthorization, AuthUserContext, withAuthentication  } from '../../session';
 
 import Posts from './Posts';
-import { withFirebase } from '../firebase';
+import { withFirebase } from '../../firebase';
 import {compose} from 'recompose';
 
 class Pro extends Component {

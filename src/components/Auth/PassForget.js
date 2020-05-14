@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import { withFirebase } from '../firebase';
+import { withFirebase } from '../../firebase';
 import cogoToast from 'cogo-toast';
 
 const PassForget = () => {

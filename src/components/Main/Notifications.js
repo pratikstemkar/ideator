@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 
-import {withAuthorization} from '../session';
+import {withAuthorization} from '../../session';
 
 const Notifications = () => {
     return(

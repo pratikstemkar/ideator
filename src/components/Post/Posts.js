@@ -1,7 +1,7 @@
-import React, {Fragment, Component} from 'react';
+import React, {Fragment, Component} from './node_modules/react';
 
-import {AuthUserContext} from '../session';
-import {withFirebase} from '../firebase';
+import {AuthUserContext} from '../../session';
+import {withFirebase} from '../../firebase';
 import PostList from './PostList';
 
 class Posts extends Component {

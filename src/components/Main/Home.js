@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
  
-import { withAuthorization } from '../session';
+import { withAuthorization } from '../../session';
 
 import PostStory from './PostStory';
 import Posts from './Posts';

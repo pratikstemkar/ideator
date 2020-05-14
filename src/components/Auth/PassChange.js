@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
  
-import { withFirebase } from '../firebase';
+import { withFirebase } from '../../firebase';
 import cogoToast from 'cogo-toast';
  
 const INITIAL_STATE = {

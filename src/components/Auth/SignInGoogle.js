@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import cogoToast from 'cogo-toast';
 
 import { withRouter } from 'react-router-dom';
-import { withFirebase } from '../firebase';
+import { withFirebase } from '../../firebase';
 
 import {compose} from 'recompose';
 

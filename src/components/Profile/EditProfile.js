@@ -1,10 +1,10 @@
-import React, {Fragment} from 'react';
-import {Link} from 'react-router-dom';
-import {withAuthorization, withAuthentication} from '../session';
-import { withFirebase } from '../firebase';
+import React, {Fragment} from './node_modules/react';
+import {Link} from './node_modules/react-router-dom';
+import {withAuthorization, withAuthentication} from '../../session';
+import { withFirebase } from '../../firebase';
 import { compose } from 'recompose';
 
-import cogoToast from 'cogo-toast';
+import cogoToast from './node_modules/cogo-toast';
 
 class Edit extends React.Component {
     constructor(props){
