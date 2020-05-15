@@ -2,9 +2,9 @@ import React, {Fragment} from 'react';
  
 import { withAuthorization } from '../../session';
 
-import PostStory from './PostStory';
-import Posts from './Posts';
-import UserFollow from './UserFollow';
+import PostStory from '../Post/PostStory';
+import Posts from '../Post/Posts';
+import UserFollow from '../User/UserFollow';
  
 const Home = () => (
   <Fragment>

@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import { WaveLoading } from 'react-loadingg';
 
-import { withFirebase } from '../firebase';
+import { withFirebase } from '../../firebase';
 import UserItem from './UserItem';
 
 class UserList extends Component {

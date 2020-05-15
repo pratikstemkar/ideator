@@ -1,7 +1,7 @@
 import React, {Fragment, Component} from 'react';
 import {Link} from 'react-router-dom';
 
-import {withFirebase} from '../firebase';
+import {withFirebase} from '../../firebase';
 
 const UserItem = ({user}) => {
     return(

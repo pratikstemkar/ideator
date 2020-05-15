@@ -2,19 +2,19 @@ import React from 'react';
 import './App.css';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
-import Landing from './components/Landing'
-import Contact from './components/Contact'
-import About from './components/About'
-import Login from './components/Login'
-import Register from './components/Register'
-import Profile from './components/Profile'
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import PassChange from './components/PassChange';
-import PassForget from './components/PassForget';
-import EditProfile from './components/EditProfile';
-import Home from './components/Home';
-import Notifications from './components/Notifications';
+import Landing from './components/Layout/Landing'
+import Contact from './components/Layout/Contact'
+import About from './components/Layout/About'
+import Login from './components/Auth/Login'
+import Register from './components/Auth/Register'
+import Profile from './components/Profile/Profile'
+import Navbar from './components/Layout/Navbar';
+import Footer from './components/Layout/Footer';
+import PassChange from './components/Auth/PassChange';
+import PassForget from './components/Auth/PassForget';
+import EditProfile from './components/Profile/EditProfile';
+import Home from './components/Main/Home';
+import Notifications from './components/Main/Notifications';
 
 import { withAuthentication } from './session';
 

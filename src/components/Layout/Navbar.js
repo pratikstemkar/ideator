@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-import Logout from './Logout';
+import Logout from '../Auth/Logout';
 
 import AuthUserContext from '../../session/Context';
 
@@ -9,11 +9,7 @@ const Navbar = () => {
     return(
         <Fragment>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <AuthUserContext.Consumer>
-                    {authUser => 
-                        authUser ? <Link className="navbar-brand" to="/home">Ideator</Link> : <Link className="navbar-brand" to="/">Ideator</Link>
-                    }
-                </AuthUserContext.Consumer>
+                <Link className="navbar-brand" to="/">Ideator</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

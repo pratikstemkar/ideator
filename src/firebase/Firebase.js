@@ -61,7 +61,7 @@ class Firebase {
                     .get()
                     .then(snapshot => {
                         const dbUser = snapshot.data();
-
+ 
                         // Merge Auth & DB User
                         authUser = {
                             uid: authUser.uid,

@@ -1,46 +1,17 @@
-import React, {Fragment, Component} from './node_modules/react';
-import {Link} from './node_modules/react-router-dom';
-import { WaveLoading } from './node_modules/react-loadingg';
+import React, {Fragment, Component} from 'react';
+import {Link} from 'react-router-dom';
+import { WaveLoading } from 'react-loadingg';
 
-import UserFollow from '../UserFollow';
+import UserFollow from '../User/UserFollow';
 
 import { withAuthorization, AuthUserContext, withAuthentication  } from '../../session';
 
-import Posts from './Posts';
+import Posts from '../Post/Posts';
 import { withFirebase } from '../../firebase';
 import {compose} from 'recompose';
 
 class Pro extends Component {
-    constructor(props) {
-        super(props);
     
-        this.state = {
-          loading: false,
-          user: null,
-          ...props.location.state,
-        };
-    }
-    
-    componentDidMount() {
-        if (this.state.user) {
-            return;
-        }
-
-        this.setState({ loading: true });
-
-        this.unsubscribe = this.props.firebase
-            .user(this.props.match.params.id)
-            .onSnapshot(snapshot => {
-            this.setState({
-                user: snapshot.data(),
-                loading: false,
-                });
-            });
-    }
-    
-    componentWillUnmount() {
-        this.unsubscribe && this.unsubscribe();
-    }
 
       render(){
           const {user, loading} = this.state;

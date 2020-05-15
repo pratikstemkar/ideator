@@ -1,4 +1,4 @@
-import React, {Fragment, Component} from './node_modules/react';
+import React, {Fragment, Component} from 'react';
 
 class Post extends Component {
     constructor(props){

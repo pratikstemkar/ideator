@@ -1,65 +1,13 @@
-import React, {Fragment} from './node_modules/react';
-import {Link} from './node_modules/react-router-dom';
+import React, {Fragment} from 'react';
+import {Link} from 'react-router-dom';
 import {withAuthorization, withAuthentication} from '../../session';
 import { withFirebase } from '../../firebase';
 import { compose } from 'recompose';
 
-import cogoToast from './node_modules/cogo-toast';
+import cogoToast from 'cogo-toast';
 
 class Edit extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            loading: false,
-            user: null,
-            ...props.location.state,
-        };
-    }
-
-    onSubmit = event => {
-        const { uid, fullname, username, email, twitter, linkedin, instagram, photoUrl, error } = this.state;
-
-        cogoToast.loading('Updating Profile').then(() => {
-            this.props.firebase.user(uid).update({
-                fullname,
-                username,
-                email, 
-                twitter,
-                linkedin,
-                instagram
-            }).then(() => {
-                cogoToast.success('Profile Updated');
-            })
-            .catch((error) => {
-                cogoToast.error(error.message);
-                this.setState({error});
-            });
-        });
-
-        event.preventDefault();
-    }
-
-    onChange = event => {
-       this.setState({ [event.target.name]: event.target.value });
-    }
-
-    componentDidMount() {
     
-        this.setState({ loading: true });
-    
-        this.unsubscribe = this.props.firebase
-            .user(this.props.match.params.id)
-            .onSnapshot(snapshot => {
-            this.setState({
-                user: snapshot.data(),
-                loading: false,
-                });
-            });
-    }
-
-    componentWillUnmount() {
-        this.unsubscribe && this.unsubscribe();
-    }
 
     render(){
         const {
@@ -96,8 +44,8 @@ class Edit extends React.Component {
                                     <input type="text" name="fullname" value={fullname} onChange={this.onChange} className="form-control"/>
                                 </div>
                                 <div className="input-group mt-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">@</div>
+                                    <div className="input-group-prepend">
+                                        <div className="input-group-text">@</div>
                                     </div>
                                     <input type="text" disabled name="username" value={username} onChange={this.onChange} className="form-control"/>
                                 </div>
@@ -105,20 +53,20 @@ class Edit extends React.Component {
                                     <input type="text" disabled name="email" value={email} onChange={this.onChange} className="form-control"/>
                                 </div>
                                 <div className="input-group mt-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">@twitter</div>
+                                    <div className="input-group-prepend">
+                                        <div className="input-group-text">@twitter</div>
                                     </div>
                                     <input type="text" name="twitter" value={twitter} onChange={this.onChange} className="form-control"/>
                                 </div>
                                 <div className="input-group mt-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">@linkedin</div>
+                                    <div className="input-group-prepend">
+                                        <div className="input-group-text">@linkedin</div>
                                     </div>
                                     <input type="text" name="linkedin" value={linkedin} onChange={this.onChange} className="form-control"/>
                                 </div>
                                 <div className="input-group mt-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">@instagram</div>
+                                    <div className="input-group-prepend">
+                                        <div className="input-group-text">@instagram</div>
                                     </div>
                                     <input type="text" name="instagram" value={instagram} onChange={this.onChange} className="form-control"/>
                                 </div>
@@ -135,6 +83,7 @@ class Edit extends React.Component {
 const condition = authUser => !!authUser;
 
 const EditProfile = compose(
+    withAuthentication,
     withAuthorization(condition),
     withFirebase,
 )(Edit);
