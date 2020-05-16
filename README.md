@@ -13,3 +13,4 @@ npm start
 [MIT](https://github.com/pratikstemkar/ideator/blob/master/LICENSE)
 
 Made with :heart: by [PRATIK](https://github.com/pratikstemkar).
+c
